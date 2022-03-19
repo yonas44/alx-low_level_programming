@@ -1,52 +1,44 @@
 #include "main.h"
 
 /**
- *times_table - printing the 9 times table starting with 0
+ * times_table - prints the 9 times table
  *
- *Return: The return value is void.
+ * Description: prints the 9 times table
+ *
+ * Return: void
  */
+
 void times_table(void)
-
 {
-	int i, k, l;
+int row, column, product, tens, ones;
 
-	l = 0;
+for (row = 0; row <= 9; row++)
+{
+for (column = 0; column <= 9; column++)
+{
+product = row * column;
+tens = product / 10;
+ones = product % 10;
 
-	while (l <= 9)
-	{
-		i = 0;
-		k = 1;
-		_putchar('0');
-		while (i < 9)
-		{
-			skeleton(l * k);
-			i++;
-			k++;
-		}
-		l++;
-		_putchar('\n');
-	}
+if (column == 0)
+{
+_putchar('0');
 }
-
-/**
- *skeleton - reused to produce a comma and space(s) between
- *each number in the times table.
- *@n: the parameter n keeps track of when to put commas, spaces and the number
- */
-void skeleton(int n)
+else if (product < 10)
 {
-	if (n <= 9)
-	{
-		_putchar(',');
-		_putchar(' ');
-		_putchar(' ');
-		_putchar(n + '0');
-	}
-	else
-	{
-		_putchar(',');
-		_putchar(' ');
-		_putchar(n / 10 + '0');
-		_putchar(n % 10 + '0');
-	}
+_putchar(',');
+_putchar(' ');
+_putchar(' ');
+_putchar(ones + '0');
+}
+else
+{
+_putchar(',');
+_putchar(' ');
+_putchar(tens + '0');
+_putchar(ones + '0');
+}
+}
+_putchar('\n');
+}
 }
